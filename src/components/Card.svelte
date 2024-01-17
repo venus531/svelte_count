@@ -3,15 +3,12 @@
     import type { Count } from "../lib/store/store"
     export let key : number
     export let value : Count
-
-    let inputName = value.name
 </script>
 
 <div class="mx-auto mb-2 rounded border-solid bg-gray-100 shadow-lg flex flex-row relative items-center max-w-sm">
-    <input class="text-gray-600 mx-4 px-1 w-32" value={inputName} on:input={(e) => {
-        inputName = e.target?.value;
-        values.setName(key, e.target?.value);
-    }}/>
+    <input class="text-gray-600 mx-4 px-1 w-32" value={value.name} on:input={(e) => 
+        values.setName(key, e.target?.value)
+    }/>
     <span class="text-lg font-bold px-4 absolute centerize">{value.number}</span>
     <div class="ml-auto">
         <button class="btn bg-red-500 rounded-l" on:click={() => values.inc(key)}>+</button><button class="btn bg-blue-500" on:click={() => values.dec(key)}>-</button><button class="btn bg-yellow-500 rounded-r" on:click={() => values.reset(key)}>0</button>
